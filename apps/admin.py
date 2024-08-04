@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
+from django.db.models import ImageField
+from django.utils.html import format_html
 
+from . import utils
 from .models import Booking, Room, User
 
 
@@ -15,9 +18,21 @@ class RoomAdmin(ModelAdmin):
         search_fields (tuple): Specifies the fields to search for in the admin list view.
     """
 
-    list_display = ("room_number", "room_type", "price_per_night", "is_available")
+    list_display = ("room_number", "room_type", "price_per_night", "is_available", "display_image")
     list_filter = ("room_type", "is_available")
     search_fields = ("room_number",)
+    formfield_overrides = {
+        ImageField: {"widget": utils.ImagePreviewAdminWidget},
+    }
+
+    @staticmethod
+    def display_image(obj):
+        if obj.image:
+            return format_html(
+                f'<img src="{obj.image.url}" width="200" height="150" style="border-radius: 5px;">'
+            )
+        else:
+            return "No image available"
 
 
 @admin.register(Booking)
