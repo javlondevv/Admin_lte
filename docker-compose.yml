@@ -1,0 +1,31 @@
+version: '3.11'
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: admin_ltedb
+      POSTGRES_USER: admin_lteuser
+      POSTGRES_PASSWORD: 6nFqy0sNaoZA
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DEBUG: "1"
+      DB_NAME: admin_ltedb
+      DB_USER: admin_lteuser
+      DB_PASSWORD: 6nFqy0sNaoZA
+      DB_HOST: db
+      DB_PORT: 5432
+
+volumes:
+  postgres_data:
