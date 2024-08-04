@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-bottom: 0; /* Removed space below hero section */
+            margin-bottom: 0;
         }
 
         .hero h1 {
@@ -27,7 +28,7 @@
 
         .hero p {
             font-size: 1.5rem;
-            margin-bottom: 1rem; /* Adjusted margin below description */
+            margin-bottom: 1rem;
         }
 
         .cta-button {
@@ -36,18 +37,18 @@
         }
 
         .features {
-            padding: 0; /* Removed padding */
-            margin-top: -50px; /* Added negative margin to pull it up */
+            padding: 0;
+            margin-top: -50px;
         }
 
         .features h2 {
             text-align: center;
-            margin-bottom: 0; /* Set margin to 0 to minimize space */
+            margin-bottom: 0;
         }
 
         .feature-item {
             text-align: center;
-            padding: 0.5rem; /* Reduced padding */
+            padding: 0.5rem;
         }
 
         .feature-item img {
@@ -55,21 +56,20 @@
             height: auto;
             margin-bottom: 1rem;
             border-radius: 10px;
-            aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
-            object-fit: cover; /* Ensure image covers the box */
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
         }
 
-        /* Additional styling for price */
         .price {
             font-size: 1.2rem;
             font-weight: bold;
-            color: #007bff; /* Bootstrap primary color */
+            color: #007bff;
         }
 
         .no-rooms {
             text-align: center;
             font-size: 1.5rem;
-            color: #dc3545; /* Bootstrap danger color */
+            color: #dc3545;
         }
     </style>
 </head>
@@ -92,8 +92,9 @@
             {% if rooms %}
                 {% for room in rooms %}
                     <div class="col-md-4 feature-item">
-                        <img src="{{ room.image.url }}" alt="{{ room.room_type }}" width="400" height="225">
-                        <!-- Set width and height -->
+                        <a href="{% url 'booking' %}?room_id={{ room.id }}">
+                            <img src="{{ room.image.url }}" alt="{{ room.room_type }}" width="400" height="225">
+                        </a>
                         <h3>{{ room.room_type }}</h3>
                         <p>{{ room.description|safe|truncatechars:100 }}</p>
                         <p class="price">${{ room.price_per_night }}</p>

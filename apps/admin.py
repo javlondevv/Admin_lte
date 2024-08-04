@@ -37,6 +37,7 @@ class BookingAdmin(ModelAdmin):
         has_change_permission(request, obj=None): Determines if the user has permission to change a booking.
         has_delete_permission(request, obj=None): Determines if the user has permission to delete a booking.
     """
+
     list_display = (
         "get_user_full_name",
         "room",
@@ -84,6 +85,7 @@ class UserAdmin(ModelAdmin):
     Methods:
         get_queryset(request): Filters the queryset to exclude superusers.
     """
+
     list_display = (
         "first_name",
         "last_name",

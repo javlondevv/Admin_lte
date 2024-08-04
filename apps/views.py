@@ -1,8 +1,9 @@
 import os
 
 import requests
+from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views import View
@@ -94,13 +95,17 @@ class BookingView(BasePostView, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
-        context["users"] = User.objects.filter(is_superuser=False).order_by(
-            "-date_joined"
-        )
+        context["users"] = User.objects.filter(is_superuser=False).order_by("-date_joined")
         context["rooms"] = Room.objects.order_by("-created_at")
+
+        selected_room_id = self.request.GET.get("room_id")
+        context["selected_room"] = None
+
+        if selected_room_id:
+            try:
+                context["selected_room"] = Room.objects.get(id=selected_room_id)
+            except Room.DoesNotExist:
+                context["selected_room"] = None
 
         return context
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)

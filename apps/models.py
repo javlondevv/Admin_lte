@@ -39,6 +39,7 @@ class User(AbstractUser):
     Methods:
         save(*args, **kwargs): Overrides the save method to set the username if not provided.
     """
+
     phone = CharField(max_length=15, blank=True, null=True)
     date_joined = DateTimeField(default=timezone.now)
 
