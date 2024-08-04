@@ -38,5 +38,5 @@ Before you begin, ensure you have met the following requirements:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
+git clone https://github.com/javlondevv/Admin_lte
+cd Admin_lte
