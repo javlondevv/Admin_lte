@@ -1,13 +1,12 @@
-# Project Name
+# Admin Lte
 
 ![Project Logo](apps/static/assets/img/logo-xl.png) <!-- Replace with your logo path if you have one -->
 
 ## Description
 
-Welcome to **[Project Name]**, a **[Brief description of your project]** designed to **[Purpose or goals of the project]**. Our project offers users **[Key functionalities or features]**, making it an essential tool for **[Target audience or use case]**.
+Welcome to **Admin Lte**, a project designed to create comfortability for users by offering a seamless **Booking** experience.
 
 ## Features
-
 
 - **📱 Responsive Design**: Works seamlessly on both desktop and mobile devices.
 - **📢 Sending Notifications**: Automated notifications sent to a Telegram bot upon booking.
@@ -19,7 +18,7 @@ Welcome to **[Project Name]**, a **[Brief description of your project]** designe
 - **💅 Frontend**: Bootstrap
 - **🗄️ Database**: PostgreSQL
 - **🔧 Other Technologies**: 
-  - Django
+  - Django REST Framework
   - Bootstrap
   - Axios for API calls
 
