@@ -4,39 +4,38 @@
 
 ## Description
 
-This project is a **[Brief description of your project]** that aims to **[Purpose or goals of the project]**. It provides users with **[Key functionalities or features]**.
+Welcome to **[Project Name]**, a **[Brief description of your project]** designed to **[Purpose or goals of the project]**. Our project offers users **[Key functionalities or features]**, making it an essential tool for **[Target audience or use case]**.
 
 ## Features
 
-- **User Authentication**: Secure login and registration for users.
-- **Real-time Data Processing**: Handle data in real-time for immediate insights.
-- **Responsive Design**: Works seamlessly on both desktop and mobile devices.
-- **Data Visualization**: Interactive charts and graphs for easy understanding of data.
+
+- **📱 Responsive Design**: Works seamlessly on both desktop and mobile devices.
+- **📢 Sending Notifications**: Automated notifications sent to a Telegram bot upon booking.
 
 ## Technologies Used
 
-- **Programming Language**: Python
-- **Framework**: Django
-- **Frontend**: React
-- **Database**: PostgreSQL
-- **Other Technologies**: 
-  - Django REST Framework
+- **💻 Programming Language**: Python
+- **🌐 Framework**: Django
+- **💅 Frontend**: Bootstrap
+- **🗄️ Database**: PostgreSQL
+- **🔧 Other Technologies**: 
+  - Django
   - Bootstrap
   - Axios for API calls
 
-## Installation
+## Notification Format
 
-Follow these instructions to set up your project locally.
+After a booking is made, a notification is sent to the Telegram bot with the following format:
 
-### Prerequisites
+```markdown
+📝 New Reservation
 
-Before you begin, ensure you have met the following requirements:
+👤 Name: Christopher Wiggins
+📞 Phone: None
 
-- Install [Python](https://www.python.org/downloads/) (version 3.10 or higher).
-- Install [pip](https://pip.pypa.io/en/stable/) if using Python.
+✉️ Room name: Integrated non-volatile product
 
-### Clone the Repository
+✉️ Type Room: Standard Twin
 
-```bash
-git clone https://github.com/javlondevv/Admin_lte
-cd Admin_lte
+📅 Check In: 08/06/2024 12:00 AM
+📅 Check Out: 09/03/2024 11:00 PM

@@ -1,9 +1,8 @@
 import os
 
 import requests
-from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views import View
@@ -109,4 +108,3 @@ class BookingView(BasePostView, ListView):
                 context["selected_room"] = None
 
         return context
-
