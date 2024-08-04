@@ -85,6 +85,7 @@ class Room(CreatedBaseModel):
         (JUNIOR_SUITE_TWIN, "Junior Suite Twin"),
     ]
     room_number = CharField(max_length=10, unique=True)
+    name = CharField(max_length=255,)
     room_type = CharField(
         max_length=50, choices=ROOM_TYPE_CHOICES, default=STANDARD_TWIN
     )

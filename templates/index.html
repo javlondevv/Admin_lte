@@ -95,6 +95,7 @@
                         <a href="{% url 'booking' %}?room_id={{ room.id }}">
                             <img src="{{ room.image.url }}" alt="{{ room.room_type }}" width="400" height="225">
                         </a>
+                        <h3>{{ room.name }}</h3>
                         <h3>{{ room.room_type }}</h3>
                         <p>{{ room.description|safe|truncatechars:100 }}</p>
                         <p class="price">${{ room.price_per_night }}</p>

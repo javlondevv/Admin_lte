@@ -18,12 +18,13 @@ class RoomAdmin(ModelAdmin):
         search_fields (tuple): Specifies the fields to search for in the admin list view.
     """
 
-    list_display = ("room_number", "room_type", "price_per_night", "is_available", "display_image")
+    list_display = ("name", "room_number", "room_type", "price_per_night", "is_available", "display_image")
     list_filter = ("room_type", "is_available")
     search_fields = ("room_number",)
     formfield_overrides = {
         ImageField: {"widget": utils.ImagePreviewAdminWidget},
     }
+    list_per_page = 5
 
     @staticmethod
     def display_image(obj):

@@ -251,7 +251,7 @@
                                                 {% for room in rooms %}
                                                     <option value="{{ room.id }}"
                                                             {% if selected_room and room.id == selected_room.id %}selected{% endif %}>
-                                                        {{ room.room_type }}
+                                                        {{ room.name }}
                                                     </option>
                                                 {% endfor %}
                                             {% else %}

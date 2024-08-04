@@ -31,6 +31,7 @@ class Command(BaseCommand):
 
         # Create rooms
         existing_room_numbers = set(Room.objects.values_list('room_number', flat=True))
+        existing_names = set(Room.objects.values_list('name', flat=True))  # Track existing names
         for i in range(30):
             room_number = f"Room-{i + 1}"
             # Ensure the room number is unique
@@ -44,9 +45,12 @@ class Command(BaseCommand):
             image_path = os.path.join(image_folder, image_file_name)
             with open(image_path, 'rb') as img_file:
                 image_content = ContentFile(img_file.read(), name=image_file_name)
-
+                name = fake.catch_phrase()
+                while name in existing_names:
+                    name = fake.catch_phrase()
                 room = Room.objects.create(
                     room_number=room_number,
+                    name=name,
                     room_type=random.choice([
                         Room.STANDARD_DOUBLE,
                         Room.STANDARD_TWIN,

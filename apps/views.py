@@ -49,8 +49,9 @@ class BasePostView(View):
         """Create a formatted message for the reservation."""
         return (
             f"📝 *New Reservation*\n\n"
-            f"👤 *Name*: {user.full_name} 🔖\n"
-            f"📞 *Phone*: {user.phone} 📱\n\n"
+            f"👤 *Name*: {user.full_name} \n"
+            f"📞 *Phone*: {user.phone} \n\n"
+            f"✉️ *Room name*: {room.name}\n\n"
             f"✉️ *Type Room*: {room.room_type}\n\n"
             f"📅 *Check In*: {check_in.strftime('%m/%d/%Y %I:%M %p')}\n"
             f"📅 *Check Out*: {check_out.strftime('%m/%d/%Y %I:%M %p')}"
